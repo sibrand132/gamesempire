@@ -1,0 +1,120 @@
+<div class="container">
+    <input type="text" class="form-control" style="float: left; margin-right: 10px; width: 400px" ng-model="find"  placeholder="Znajdź .." >
+
+    <a href="#/admin/create" class="btn btn-primary btn-md" style="width: 120px; float: right; color: whitesmoke; border-color: #DF8830">Dodaj grę <span class="glyphicon glyphicon-plus"></span></a>
+    <a href="#/admin/createUser" class="btn btn-primary btn-md" style="width: 180px; float: right; color: whitesmoke; margin-right: 10px; border-color: #DF8830">Dodaj użytkownika <span class="glyphicon glyphicon-plus"></span></a>
+    <div style="clear: both"></div>
+    <br/>
+
+
+    <form name="outerForm" class="tab-form-demo">
+        <uib-tabset active="activeForm">
+
+            <uib-tab index="1" heading="Lista Gier">
+                <ul class="list-group">
+                    <li ng-repeat="gra in gry | filter: find" class="list-group-item">
+                        <a href="#/game/{{gra.id}}" >
+                            <div style="float: left; margin-right: 20px;"><img style=" max-width: 300px" src="uploads/{{gra.id}}/{{gra.Plakat}}"></div>
+                            <div class="tytul" style="font-size: 20px">{{gra.Nazwa}} &nbsp&nbsp {{gra.Platform}}/{{gra.Format}}</div><br/>
+                            <ul class="gatunki" style="list-style-type: none; float: left">
+                                <li>{{gra.Gatunek1}}</li>
+                                <li>{{gra.Gatunek2}}</li>
+                                <li>{{gra.Gatunek3}}</li>
+                            </ul>
+                            <div class="cena" style="font-size:30px; float: right" >{{gra.Cena}} PLN
+                                <a href="#/admin/edit/{{gra.id}}" class="btn btn-primary btn-md" style="width: 100px; color: whitesmoke; border-color: #DF8830">Edytuj <span class="glyphicon glyphicon-pencil"></span></a>
+                                <button ng-click="delete(gra,$index)" class="btn btn-danger btn-md" style="width: 100px; color: whitesmoke">Usuń <span class="glyphicon glyphicon-remove"></span></button>
+                            </div>
+                            <div style="clear: both"></div>
+                        </a>
+                    </li>
+                </ul>
+            </uib-tab>
+
+            <style>
+                .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+                    background-color: #462300;
+                }
+            </style>
+            <uib-tab index="2" heading="Lista Użytkowników">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>;
+                        <th>Imię</th>;
+                        <th>Email</th>;
+                        <th>Rola</th>;
+                        <th></th>;
+                        <th></th>;
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="user in users| filter: find">
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.role}}</td>
+                        <td><a href="#/admin/editUser/{{user.id}}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span></a> </td>
+                        <td><button ng-click="deleteUser(user,$index)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </uib-tab>
+
+            <uib-tab index="3" heading="Lista Zamówień">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>;
+                        <th>Imię</th>;
+                        <th>Email</th>;
+                        <th>Koszyk</th>;
+                        <th>Do zapłaty</th>
+                        <th>Status</th>;
+                        <th></th>;
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="order in orders| filter: find">
+                        <td>{{order.id}}</td>
+                        <td>{{order.name}}</td>
+                        <td>{{order.email}}</td>
+                        <td>
+                            <table style="background-color: #222" class="table">
+                                <thead>
+                                <tr>
+                                    <th>Produkt</th>
+                                    <th>Platforma</th>
+                                    <th>Cena</th>
+                                    <th>Ilość</th>
+                                    <th>Razem</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in order.items">
+                                    <td>{{item.Nazwa}}</td>
+                                    <td>{{item.Platform}}</td>
+                                    <td>{{item.Cena}}&nbspPLN</td>
+                                    <td>{{item.qty}}</td>
+                                    <td>{{item.Cena*item.qty | number: 2}}&nbspPLN</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>{{order.total}}&nbspPLN</td>
+                        <td style="align-content: center"><button ng-if="order.status ==0" ng-click="changeStatus(order)" class="btn btn-warning ">Oczekuje</button>
+                            <button ng-if="order.status ==1" ng-click="changeStatus(order)" class="btn btn-success ">Wysłano </button></td>
+
+
+                        <td><button ng-click="deleteOrder(order,$index)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </uib-tab>
+        </uib-tabset>
+
+
+    </form>
+
+
+</div>

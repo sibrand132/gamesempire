@@ -1,0 +1,150 @@
+<header class="container">
+<div class="row">
+
+
+</div>
+    <div class="row row-padded">
+        <div class="col-md-9 text-left">
+            <div class="col-md-12 text-left">
+                <img class="img-responsive img-rounded" style='float:left; margin-bottom: 10px;' src="{{gra.PageLogo}}" width="30%" height="30%" hspace="20" />
+                <h1><b>{{gra.Nazwa}}</b> <br /></h1>
+                <h3>Gatunki:</h3>
+                <table>
+                    <tr>
+                        <td><h5 style="margin-right: 10px;">{{gra.Gatunek1}}</h5></td>
+                        <td><h5 style="margin-right: 10px;">{{gra.Gatunek2}}</h5></td>
+                        <td><h5 style="margin-right: 10px;">{{gra.Gatunek3}}</h5></td>
+                    </tr>
+
+                </table>
+
+                <h4> Trzy powody dlaczego chcesz kupić ten produkt: <br /><br/>
+                    <div id="opismini">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {{gra.OpisMini1}} <br />
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {{gra.OpisMini2}} <br />
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {{gra.OpisMini3}} <br />
+                    </div>
+                </h4>
+            </div>
+            <div class="row row-padded">
+                <div class="col-lg-12 text-center" ng-if="false">
+                    <p></br></p>
+
+                    <div id="the-slider" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#the-slider" data-slide-to="0" class="active"></li>
+                            <li data-target="#the-slider" data-slide-to="1" class="active"></li>
+                            <li data-target="#the-slider" data-slide-to="2" class="active"></li>
+                        </ol>
+                        <div class="carousel-inner">
+
+                            <div class="item active">
+                                <img src="img/Dv1.jpg" class="img-rounded center-block">
+                            </div><!--Citem1-->
+
+                            <div class="item">
+                                <img src="img/Dv2.jpg" class="img-rounded center-block">
+                            </div><!--Citem2-->
+
+                            <div class="item">
+                                <img src="img/Dv3.jpg" class="img-rounded center-block" >
+                            </div><!--Citem3-->
+                        </div><!--Cinter-->
+                        <a class="left carousel-control" href="#the-slider" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#the-slider" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div><!--C-->
+                    <br>
+                </div>
+
+                <script type="text/javascript">
+                    function swap(image) {
+                        document.getElementById("main").src = image.href;
+                    }
+                </script>
+
+
+                <h4>Galeria: </h4>
+                <div ng-repeat="image in images">
+                    <div class="pull-left img-responsive" style="position: relative">
+                        <a href="uploads/{{gra.id}}/{{image}}" ng-if="image!=gra.Plakat" onclick="swap(this); return false;"><img class="img-thumbnail" ng-src="uploads/{{gra.id}}/{{image}}" ng-if="image!=gra.Plakat" style="width:370px; margin: 5px;"></a>
+                        <!--<img ng-src="uploads/{{gra.id}}/{{image}}" style="width:370px; margin: 5px;">-->
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 text-left">
+                    <h4><b> </b> Opis Gry <br /></h4>
+                    <p1>
+                        {{gra.Opis}}
+                    </p1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 text-left">
+            <div class="row row-table">
+                <div class="col-xs-12 text-center">
+                    <h1> {{gra.Cena}} PLN</h1>
+                </div>
+            </div>
+
+            <div class="row row-table">
+                <div class="col-xs-12 text-center">
+
+                        <a href="" type="button" class="btn btn-primary btn-md" style=" width: auto;border-color: #DF8830;" ng-click="addToCart(gra)" data-toggle="modal" data-target="#myModal" >DODAJ DO KOSZYKA <span class="glyphicon glyphicon-shopping-cart"></span>+</a>
+                            <div id="myModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog modal-sm">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h2 style="color: #DF8830">Dodano do koszyka</h2>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                </div>
+            </div>
+
+            <div class="row row-table">
+                <div class="col-xs-12 text-left">
+                    <h4> Cechy:</h4>
+                    <p1>
+                        <b>Platforma</b> <br />
+                        {{gra.Platform}} <br />
+                        <div style="width: 100%; height: 2px; border-bottom: 1px solid hsl(0, 0%, 70%); text-align: center"></div>
+                        <b>Wersja językowa</b> <br />
+                        {{gra.WersjaJezykowa}} <br />
+                        <div style="width: 100%; height: 2px; border-bottom: 1px solid hsl(0, 0%, 70%); text-align: center"></div>
+                        <b>Data premiery</b> <br />
+                        {{gra.DataPremiery}} <br />
+                        <div style="width: 100%; height: 2px; border-bottom: 1px solid hsl(0, 0%, 70%); text-align: center"></div>
+                        <b>Format / nośnik</b> <br />
+                        {{gra.Format}} <br />
+                        <div style="width: 100%; height: 2px; border-bottom: 1px solid hsl(0, 0%, 70%); text-align: center"></div>
+                        <b>Wydawca</b> <br />
+                        {{gra.Wydawca}} <br />
+                        <div style="width: 100%; height: 2px; border-bottom: 1px solid hsl(0, 0%, 70%); text-align: center"></div>
+                        <b>Dystrybutor</b> <br />
+                        {{gra.Dystrybutor}} <br />
+                        <div style="width: 100%; height: 2px; border-bottom: 1px solid hsl(0, 0%, 70%); text-align: center"></div>
+                        <b>Wymagania sprzętowe</b> <br />
+                        {{gra.Wymagania}} <br />
+                        <div style="width: 100%; height: 2px; border-bottom: 1px solid hsl(0, 0%, 70%); text-align: center"></div>
+                        <b>PEGI</b> <br />
+                        <img class="img-responsive img-rounded" style='float:left;' src="{{gra.Pegi}}" width="20%" height="20%" />
+                    </p1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

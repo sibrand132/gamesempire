@@ -1,0 +1,43 @@
+<form ng-submit="formSubmit(user)">
+    <div class="cont center-block" >
+        <div class="row">
+
+            <div class="col-sm-6 center-block" style="float: none">
+
+                <div class="alert alert-success" ng-if="success">Zarejestrowano pomyślnie. Przejdź do <a href="#/login" class="alert-link">logowania</a>.</div>
+                <div  ng-if="!success">
+                <div class="panel panel-default" style="background-color: #262626; color: #A9A9A9">
+                    <div class="panel-heading"style="background-color: #262626; color: whitesmoke;">
+                        <h3 class="panel-title" style=" font-size: 20px; "><strong>Rejestracja</strong></h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group" ng-class="{ 'has-error':errors.name, 'has-success':!errors.name && submit}">
+                            <label>Imię</label>
+                            <input type="text" style="width: 100%"  class="form-control" ng-model="user.name" placeholder="Twoje imię">
+                            <span class="text-danger">{{errors.name}}</span>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error':errors.email, 'has-success':!errors.email && submit}">
+                            <label>Email</label>
+                            <input type="text" style="width: 100%"  class="form-control" ng-model="user.email" placeholder="Twój adres email">
+                            <span class="text-danger">{{errors.email}}</span>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error':errors.password, 'has-success':!errors.password && submit}">
+                            <label>Hasło</label>
+                            <input type="password" style="width: 100%"  class="form-control" ng-model="user.password" placeholder="Twoje hasło">
+                            <span class="text-danger">{{errors.password}}</span>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error':errors.passconf, 'has-success':!errors.passconf && submit}">
+                            <label>Powtórz hasło</label>
+                            <input type="password" style="width: 100%"  class="form-control" ng-model="user.passconf" placeholder="Hasło ponownie">
+                            <span class="text-danger">{{errors.passconf}}</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" style="border-color: #DF8830; margin-bottom: 10px">Zarejestruj się</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

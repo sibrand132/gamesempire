@@ -1,0 +1,42 @@
+[
+  {
+    "userId": 1,
+    "name": "Beverly",
+    "email": "felis.Donec@ipsum.org",
+    "role": "user",
+    "items": [
+      {
+        "Nazwa": "The Division",
+        "Cena": 182.24,
+        "Platform": "PC",
+        "Ilosc": 1
+      },
+      {
+        "Nazwa": "Alice: Madness Returns The Complete Collection",
+        "Cena": 96.04,
+        "Platform": "PC",
+        "Ilosc":1
+      }
+    ],
+    "razem": 278.28,
+    "status":0
+  },
+
+  {
+    "userId": 2,
+    "name": "Bree",
+    "email": "sem@vitaediam.net",
+    "role": "user",
+    "items": [
+      {
+        "Nazwa": "XCOM 2",
+        "Cena": 165.96,
+        "Platform": "PC",
+        "Ilosc": 3
+      }
+    ],
+    "razem": 497.88,
+    "status": 1
+  }
+
+]

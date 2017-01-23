@@ -1,0 +1,91 @@
+<div id="menu">
+
+    <ul class="nav nav-tabs">
+
+
+        <li style=" color: darkgray">Sortuj:<select style="background-color: transparent; color: darkgray; border-width: 0px" class="select" ng-model="sortColumn">
+            <option style=" color: black" value="Nazwa">Nazwa</option>
+            <option style=" color: black" value="Cena">Cena</option>
+            <option style=" color: black" value="Gatunek">Gatunek</option>
+        </select></li>
+
+        <li style=" color: darkgray">Liczba wyswietlania:<select class="select" style="background-color: transparent; color: darkgray; border-width: 0px" ng-model="limit" class="form-control">
+            <option style=" color: black" value="5">5</option>
+            <option style=" color: black" value="10">10</option>
+            <option style=" color: black" value="15">15</option>
+            <option style=" color: black" value="">Wszystkie</option>
+        </select></li>
+
+
+        <li style=" color: darkgray">Platforma:<select class="select" ng-model="platforma" style="background-color: transparent; color: darkgray; border-width: 0px" class="form-control">
+            <option style=" color: black" value="PC">PC</option>
+            <option style=" color: black" value="Xbox ONE">Xbox ONE</option>
+            <option style=" color: black" value="Play Station 4">Play Station 4</option>
+            <option style=" color: black" value="Play Station Vita">Play Station Vita</option>
+            <option style=" color: black" value="3DS">3DS</option>
+            <option style=" color: black" value="">Wszystkie</option>
+        </select></li>
+        <input type="text" class="form-control pull-right" style="margin-bottom: 10px; max-width: 400px" ng-model="find"  placeholder="Szukaj .." >
+    </ul>
+
+
+
+    <div class="row row-padded">
+        <div class="col-md-6">
+            <button class="btn btn-link btn-lg" ng-click="SortValue('Nazwa')"><p1>TYTUŁ</p1></button>
+
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn btn-link btn-lg" ><p1></p1></button>
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn btn-link btn-lg" ng-click="SortValue('Cena')" ><p1>CENA</p1></button>
+
+        </div>
+
+    </div>
+
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <ul class="list-group" >
+                <li ng-repeat="gra in gry | orderBy:sortColumn | limitTo:limit | filter:{ Platform:platforma, Nazwa: find}  " class="list-group-item">
+                    <a href="#/game/{{gra.id}}">
+                        <div style="float: left; margin-right: 20px;"><img src="uploads/{{gra.id}}/{{gra.Plakat}}"></div>
+                        <div class="tytul" style="font-size: 20px">{{gra.Nazwa}} &nbsp&nbsp {{gra.Platform}}/{{gra.Format}}</div><br/>
+                        <ul class="gatunki" style="list-style-type: none; float: left">
+                            <li>{{gra.Gatunek1}}</li>
+                            <li>{{gra.Gatunek2}}</li>
+                            <li>{{gra.Gatunek3}}</li>
+                        </ul>
+                        <!--<div class="kupione" style="font-size: 20px;float: left; text-indent: 8cm" >{{gra.Kupione}}</div>-->
+                        <div class="cena" style="font-size:30px; float: right" ng-click="AddItem()">{{gra.Cena}} PLN
+                            <a href="" type="button" class="btn btn-primary btn-md" style=" width: auto;border-color: #DF8830;" ng-click="addToCart(gra)" data-toggle="modal" data-target="#myModal1">DODAJ DO KOSZYKA <span class="glyphicon glyphicon-shopping-cart"></span>+</a>
+                            <div id="myModal1" class="modal fade" role="dialog">
+                                <div class="modal-dialog modal-sm">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h2 style="color: #DF8830">Dodano do koszyka</h2>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both"></div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

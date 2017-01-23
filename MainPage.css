@@ -1,0 +1,152 @@
+body{
+    background-image: url('img/footer_lodyas.png');
+    font-family: 'Lato', sans-serif;
+}
+
+#container{
+
+}
+
+#logo{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height:auto;
+    display: block;
+    max-width: 100% !important;
+    float: left;
+}
+
+#log_buttn{
+    float: right;
+    padding-top: 70px;
+    font-size: 20px;
+}
+
+a:link{
+    color:darkgrey;
+    text-decoration: none;
+}
+a:visited{
+    color:darkgrey;
+    text-decoration: none;
+}
+a:hover{
+    color:white;
+    text-decoration: none;
+}
+
+.navbar-nav{
+    font-size: 20px;
+}
+
+.glyphicon-heart:hover{
+    color:red;
+}
+
+
+#panel{
+    clear:both;
+}
+.input-group{
+    width: 940px;
+
+}
+
+.form-control{
+    width: 1000px;
+    background-color: #4a4a4a;
+    color: white;
+}
+
+#menu{
+    color: white;
+    padding-top: 20px;
+}
+
+.nav-tabs{
+    border-bottom: 1px solid gray;
+}
+
+.nav-tabs>li>a:hover{
+    background-color: #4a4a4a;
+}
+
+.nav-tabs>li.active>a:focus{
+    background-color: #101010;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    background-color: #222;
+    color: white;
+    border-color: gray;
+}
+
+.list-group-item{
+    background-color: transparent;
+    border-color: gray;
+}
+
+.list-group-item:hover{
+    background-color: #462300;
+}
+
+.btn-primary{
+    background-color: #222;
+    border-color: #DF8830;
+}
+
+.btn-primary:hover{
+    background-color: #DF8830;
+    border-color: #DF8830;
+}
+
+.btn-primary:focus{
+    background-color: #222;
+    border-color: #222;
+}
+
+
+.ui-widget-content{
+    width: 730px;
+    border:none !important;
+    background:none !important;
+    list-style-type: none;
+}
+.ui-menu-item{
+    color: #000000 !important;
+    padding: 10px 10px !important;
+    height:50px !important;
+    cursor: pointer;
+    border:none !important;
+    background:none !important;
+    background: #f9f9f9 !important;
+    border-bottom: 1px solid #eeeeee !important;
+    width:730px !important;
+    list-style-type: none;
+}
+.ui-state-focus{
+    color: #FFFFFF !important;
+    background:none !important;
+    border:none !important;
+    background: #0099FF !important;
+    padding: 10px 10px !important;
+    height:50px !important;
+    cursor: pointer !important;
+    background: #0099FF !important;
+    border-bottom: 1px solid #eeeeee !important;
+    width:730px !important;
+    list-style-type: none;
+}
+
+
+
+
+
+.list-group-item{
+    background-color: transparent;
+    border-color: gray;
+}
+
+.list-group-item:hover{
+    background-color: #462300;
+}

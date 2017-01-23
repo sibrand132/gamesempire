@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app="aplikacja">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Games Empire - strona główna</title>
+
+    <link rel="icon" type="image/x-icon" href="img/ikona.png" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- ANGULAR -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-cookies.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+    <script src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
+    <script src="https://cdn.rawgit.com/nervgh/angular-file-upload/master/dist/angular-file-upload.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-sanitize.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+    <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+
+
+    <script src="app/ui-bootstrap-tpls-1.3.2.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/controler1.js"></script>
+    <script src="app/filters/filters.js"></script>
+    <script src="app/services/services.js"></script>
+    <script src="app/directives/directives.js"></script>
+
+    <link rel="stylesheet" href="MainPage.css" />
+    <link rel="stylesheet" href="basketPage.css" />
+    <link rel="stylesheet" href="gameList.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+    <script src="slider/js/jssor.slider.min.js"></script>
+    <link rel="stylesheet" href="slider.css"/>
+    <script src="slider.js"></script>
+
+    <style>
+        .select2 > .select2-choice.ui-select-match {
+            /* Because of the inclusion of Bootstrap */
+            height: 29px;
+        }
+        .selectize-control > .selectize-dropdown {
+            top: 36px;
+        }
+    </style>
+<!-- Upload Zdjęć css -->
+    <style>
+        .my-drop-zone { border: dotted 3px lightgray; }
+        .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+        .another-file-over-class { border: dotted 3px green; }
+        html, body { height: 100%; }
+        canvas {
+            background-color: #f3f3f3;
+            -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
+            -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
+            box-shadow: 3px 3px 3px 0 #e3e3e3;
+            border: 1px solid #c3c3c3;
+            height: 100px;
+            margin: 6px 0 0 6px;
+        }
+    </style>
+
+    <!-- Datapicker-->
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div ng-controller="navigation" ng-include="navigation()"></div>
+    <div ng-view></div>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<form ng-submit="saveChanges(user)">
+    <style> label{color: white;}</style>
+    <div class="form-group" ng-class="{ 'has-error':errors.name, 'has-success': !errors.name && submit}">
+        <label>Imię</label>
+        <input type="text" ng-class="{'has-error' : errors.name}" class="form-control text" ng-model="user.name" placeholder="" >
+        <span class="text-danger" >{{errors.name}}</span><br>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error':errors.email, 'has-success': !errors.email && submit}">
+        <label>Email</label>
+        <input type="text" class="form-control text" ng-model="user.email" placeholder="" >
+        <span class="text-danger" >{{errors.email}}</span><br>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error':errors.password, 'has-success': !errors.password && submit}">
+        <label>Nowe hasło</label>
+        <input type="password" class="form-control text" ng-model="user.password" placeholder="" >
+        <span class="text-danger" >{{errors.password}}</span><br>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error':errors.passconf, 'has-success': !errors.passconf && submit}">
+        <label>Powtórz nowe hasło</label>
+        <input type="password" class="form-control text" ng-model="user.passconf" placeholder="" >
+        <span class="text-danger" >{{errors.passconf}}</span><br>
+    </div>
+    <label>Rola</label>
+    <select class="form-control" ng-model="user.role">
+        <option value="user">user</option>
+        <option value="admin">admin</option>
+    </select>
+    <br/>
+    <button type="submit" class="btn btn-primary btn-md" ng-if="!success" style="width: 150px; float: right; margin-right: 10px; border-color: #DF8830">Zapisz zmiany <span class="glyphicon glyphicon-ok"></span> </button>
+    <button type="button" class="btn btn-success btn-md" ng-if="success" style="float: right; width: 150px; margin-right: 10px;" disabled>Zmiany zapisane</button>
+    <a href="#/admin/panel" class="btn btn-primary btn-md" style="width: 120px; float: left;">Wróć do listy </a>
+</form>

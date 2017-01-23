@@ -1,0 +1,60 @@
+<div class="container">
+
+    <form name="outerForm" class="tab-form-demo">
+        <uib-tabset active="activeForm">
+
+            <uib-tab index="1" heading="Lista Zamówień">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>;
+                        <th>Imię</th>;
+                        <th>Email</th>;
+                        <th>Koszyk</th>;
+                        <th>Całość</th>
+                        <th>Status</th>;
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="order in orders| filter: find">
+                        <td>{{order.id}}</td>
+                        <td>{{order.name}}</td>
+                        <td>{{order.email}}</td>
+                        <td>
+                            <table style="background-color: #222" class="table">
+                                <thead>
+                                <tr>
+                                    <th>Produkt</th>
+                                    <th>Platforma</th>
+                                    <th>Cena</th>
+                                    <th>Ilość</th>
+                                    <th>Razem</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in order.items">
+                                    <td>{{item.Nazwa}}</td>
+                                    <td>{{item.Platform}}</td>
+                                    <td>{{item.Cena}}&nbspPLN</td>
+                                    <td>{{item.qty}}</td>
+                                    <td>{{item.Cena*item.qty | number: 2}}&nbspPLN</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>{{order.total}}&nbspPLN</td>
+                        <td style="align-content: center"><button ng-if="order.status ==0"  class="btn btn-warning " disabled>Oczekuje</button>
+                            <button ng-if="order.status ==1" class="btn btn-success " disabled>Wysłano </button></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </uib-tab>
+        </uib-tabset>
+
+
+    </form>
+
+
+</div>

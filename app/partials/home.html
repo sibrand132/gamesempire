@@ -1,0 +1,247 @@
+<!-- Slider główny -->
+
+<!--<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 969px; height: 300px; overflow: hidden; visibility: hidden; background-color: #000000;">-->
+    <!--&lt;!&ndash; Loading Screen &ndash;&gt;-->
+    <!--<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">-->
+        <!--<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>-->
+        <!--<div style="position:absolute;display:block;background:url('../../slider/img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>-->
+    <!--</div>-->
+    <!--<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 759px; height: 300px; overflow: hidden; text-align: center">-->
+        <!--<div ng-repeat="sl in slider" data-p="112.50" style="display: none;">-->
+            <!--<img data-u="image" src="{{sl.Plakat}}" />-->
+            <!--<div data-u="thumb">-->
+                <!--<img class="i" src="{{sl.PlakatMin}}" />-->
+                <!--<div class="t">{{sl.Nazwa}}<br/>{{sl.Platforma}} </div>-->
+                <!--<div class="c">{{sl.Cena}} PLN</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+    <!--</div>-->
+    <!--&lt;!&ndash; Thumbnail Navigator &ndash;&gt;-->
+    <!--<div data-u="thumbnavigator" class="jssort11" style="position:absolute;right:5px;top:0px;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;width:200px;height:300px;" data-autocenter="2">-->
+        <!--&lt;!&ndash; Thumbnail Item Skin Begin &ndash;&gt;-->
+        <!--<div data-u="slides" style="cursor: default;">-->
+            <!--<div data-u="prototype" class="p">-->
+                <!--<div data-u="thumbnailtemplate" class="tp"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Thumbnail Item Skin End &ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; Arrow Navigator &ndash;&gt;-->
+    <!--<span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>-->
+    <!--<span data-u="arrowright" class="jssora02r" style="top:0px;right:218px;width:55px;height:55px;" data-autocenter="2"></span>-->
+<!--</div>-->
+
+<!--<table>-->
+    <!--<tr ng-repeat="x in games">-->
+        <!--<td>{{ x.Tytul }}</td>-->
+        <!--<td>{{ x.MaleLogo }}</td>-->
+        <!--<td>{{ x.Cena }}</td>-->
+        <!--<td>{{ x.Platforma[0]}}</td>-->
+    <!--</tr>-->
+<!---->
+<!--</table>-->
+    <form name="outerForm" class="tab-form-demo">
+        <uib-tabset active="activeForm">
+
+            <uib-tab index="1" heading="NAJNOWSZE">
+                <ul class="list-group">
+                    <li ng-repeat="gra in gry" class="list-group-item" ng-if="gra.DataPremiery > closeDate && gra.DataPremiery<=actDate" >
+                        <a href="#/game/{{gra.id}}">
+                            <div style="float: left; margin-right: 20px;"><img src="uploads/{{gra.id}}/{{gra.Plakat}}"></div>
+                            <div class="tytul" style="font-size: 20px">{{gra.Nazwa}} &nbsp&nbsp {{gra.Platform}}/{{gra.Format}}</div><br/>
+                            <ul class="gatunki" style="list-style-type: none; float: left">
+                                <li>{{gra.Gatunek1}}</li>
+                                <li>{{gra.Gatunek2}}</li>
+                                <li>{{gra.Gatunek3}}</li>
+                            </ul>
+                            <div class="cena" style="font-size:30px; float: right" >{{gra.Cena}} PLN
+                                <a href="" type="button" class="btn btn-primary btn-md" style=" width: auto;border-color: #DF8830;" ng-click="addToCart(gra)" data-toggle="modal" data-target="#myModal">DODAJ DO KOSZYKA <span class="glyphicon glyphicon-shopping-cart"></span>+</a>
+                                <div id="myModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h2 style="color: #DF8830">Dodano do koszyka</h2>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div style="clear: both"></div>
+                        </a>
+                    </li>
+                </ul>
+            </uib-tab>
+
+
+            <uib-tab index="2" heading="NADCHODZĄCE" >
+                <ul class="list-group">
+                    <li ng-repeat="gra in gry | filter: find" class="list-group-item" ng-if="gra.DataPremiery > actDate" >
+                        <a href="#/game/{{gra.id}}">
+                            <div style="float: left; margin-right: 20px;"><img src="uploads/{{gra.id}}/{{gra.Plakat}}"></div>
+                            <div class="tytul" style="font-size: 20px">{{gra.Nazwa}} &nbsp&nbsp {{gra.Platform}}/{{gra.Format}}</div><br/>
+                            <ul class="gatunki" style="list-style-type: none; float: left">
+                                <li>{{gra.Gatunek1}}</li>
+                                <li>{{gra.Gatunek2}}</li>
+                                <li>{{gra.Gatunek3}}</li>
+                            </ul>
+                            <div class="cena" style="font-size:30px; float: right" >{{gra.Cena}} PLN
+                                <a href="" type="button" class="btn btn-primary btn-md" style=" width: auto;border-color: #DF8830;" ng-click="addToCart(gra)" data-toggle="modal" data-target="#myModal2">DODAJ DO KOSZYKA <span class="glyphicon glyphicon-shopping-cart"></span>+</a>
+                                <div id="myModal2" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h2 style="color: #DF8830">Dodano do koszyka</h2>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                        </a>
+                    </li>
+                </ul>
+            </uib-tab>
+
+            <uib-tab index="3" heading="NAJLEPSZE <120">
+                <ul class="list-group">
+                    <li ng-repeat="gra in gry" ng-if="gra.Cena <120" class="list-group-item">
+                        <a href="#/game/{{gra.id}}">
+                            <div style="float: left; margin-right: 20px;"><img src="uploads/{{gra.id}}/{{gra.Plakat}}"></div>
+                            <div class="tytul" style="font-size: 20px">{{gra.Nazwa}} &nbsp&nbsp {{gra.Platform}}/{{gra.Format}}</div><br/>
+                            <ul class="gatunki" style="list-style-type: none; float: left">
+                                <li>{{gra.Gatunek1}}</li>
+                                <li>{{gra.Gatunek2}}</li>
+                                <li>{{gra.Gatunek3}}</li>
+                            </ul>
+                            <div class="cena" style="font-size:30px; float: right" >{{gra.Cena}} PLN
+                                <a href="" type="button" class="btn btn-primary btn-md" style=" width: auto;border-color: #DF8830;" ng-click="addToCart(gra)" data-toggle="modal" data-target="#myModal3">DODAJ DO KOSZYKA <span class="glyphicon glyphicon-shopping-cart"></span>+</a>
+                                <div id="myModal3" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h2 style="color: #DF8830">Dodano do koszyka</h2>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                        </a>
+                    </li>
+                </ul>
+            </uib-tab>
+
+            <uib-tab index="4" heading="NAJLEPSZE <80">
+                <ul class="list-group">
+                    <li ng-repeat="gra in gry"  ng-if="gra.Cena <80 " class="list-group-item">
+                        <a href="#/game/{{gra.id}}">
+                            <div style="float: left; margin-right: 20px;"><img src="uploads/{{gra.id}}/{{gra.Plakat}}"></div>
+                            <div class="tytul" style="font-size: 20px">{{gra.Nazwa}} &nbsp&nbsp {{gra.Platform}}/{{gra.Format}}</div><br/>
+                            <ul class="gatunki" style="list-style-type: none; float: left">
+                                <li>{{gra.Gatunek1}}</li>
+                                <li>{{gra.Gatunek2}}</li>
+                                <li>{{gra.Gatunek3}}</li>
+                            </ul>
+                            <div class="cena" style="font-size:30px; float: right" >{{gra.Cena}} PLN
+                                <a href="" type="button" class="btn btn-primary btn-md" style=" width: auto;border-color: #DF8830;" ng-click="addToCart(gra)" data-toggle="modal" data-target="#myModal4">DODAJ DO KOSZYKA <span class="glyphicon glyphicon-shopping-cart"></span>+</a>
+                                <div id="myModal4" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h2 style="color: #DF8830">Dodano do koszyka</h2>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                        </a>
+                    </li>
+                </ul>
+            </uib-tab>
+
+            <uib-tab index="5" heading="NAJLEPSZE <40">
+                <ul class="list-group">
+                    <li ng-repeat="gra in gry" ng-if="gra.Cena<40" class="list-group-item">
+                        <a href="#/game/{{gra.id}}">
+                            <div style="float: left; margin-right: 20px;"><img src="uploads/{{gra.id}}/{{gra.Plakat}}"></div>
+                            <div class="tytul" style="font-size: 20px">{{gra.Nazwa}} &nbsp&nbsp {{gra.Platform}}/{{gra.Format}}</div><br/>
+                            <ul class="gatunki" style="list-style-type: none; float: left">
+                                <li>{{gra.Gatunek1}}</li>
+                                <li>{{gra.Gatunek2}}</li>
+                                <li>{{gra.Gatunek3}}</li>
+                            </ul>
+                            <div class="cena" style="font-size:30px; float: right" >{{gra.Cena}} PLN
+                                <a href="" type="button" class="btn btn-primary btn-md" style=" width: auto;border-color: #DF8830;" ng-click="addToCart(gra)" data-toggle="modal" data-target="#myModal5">DODAJ DO KOSZYKA <span class="glyphicon glyphicon-shopping-cart"></span>+</a>
+                                <div id="myModal5" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h2 style="color: #DF8830">Dodano do koszyka</h2>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                        </a>
+                    </li>
+                </ul>
+            </uib-tab>
+        </uib-tabset>
+
+
+    </form>
+
+
+
+
+</uib-tabset>
+
+
+
